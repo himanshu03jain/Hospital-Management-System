@@ -37,8 +37,8 @@ const DLogin = () => {
   const dispatch = useDispatch();
 
   const Handlechange = (e) => {
+    console.log('Input field changed:', e.target.name, e.target.value);
     setFormvalue({ ...formvalue, [e.target.name]: e.target.value });
-    console.log(setFormvalue);
   };
   const navigate = useNavigate();
   const HandleSubmit = (e) => {
@@ -200,6 +200,9 @@ const DLogin = () => {
                 value={formvalue.password}
                 onChange={Handlechange}
                 required
+                onInput={(e) => {
+                console.log('Input field changed:', e.target.name, e.target.value);
+                }}
               />
               <button type="submit">{Loading ? "Loading..." : "Submit"}</button>
               <p style={{ marginTop: "10px" }}>
